@@ -7,10 +7,7 @@
 
         static void Main(string[] args)
         {
-            string appDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string filename = demo ? "demo-input.txt" : "input.txt";
-            string file = appDirectory + filename;
-
+            string file = Utils.Input.GetInputFile(demo);
             string[] rucksacks = File.ReadAllLines(file);
 
             int rucksacksPrioritySum;
@@ -24,8 +21,6 @@
             }
 
             Console.WriteLine("Rucksacks Priority Sum: {0}", rucksacksPrioritySum);
-
-
         }
 
 

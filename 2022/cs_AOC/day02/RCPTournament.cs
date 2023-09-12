@@ -9,12 +9,12 @@ namespace day02
 {
     internal class RCPTournament
     {
-        public static int GetTournamentRoundResult(string tournamentRound, bool firstStrategyGuide)
+        public static int GetTournamentRoundResult(string tournamentRound, bool firstPart)
         {
             string[] values = tournamentRound.Split(" ");
             var oppenent = GetOptionFromString(values[0]);
             
-            if (firstStrategyGuide)
+            if (firstPart)
             {    
                 var optionForBattle = GetOptionFromString(values[1]);
                 return RCPBattle.GetPointsFromBattle(optionForBattle, oppenent);
