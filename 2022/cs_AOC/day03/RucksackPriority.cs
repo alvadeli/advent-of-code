@@ -16,11 +16,11 @@ namespace day03
             int sum = 0;
             foreach (string rucksack in rucksacks)
             {
-                sum += GetSingleRucksackPriority(rucksack);
+                char commonItem = GetCommonRucksackItem(rucksack);
+                sum += GetPriorityValue(commonItem);
             }
             return sum;
         }
-
 
         public static int GetGroupPrioritiesSum(string[] rucksacks) 
         {
@@ -30,22 +30,11 @@ namespace day03
             for (int i = 0; i < rucksacks.Count(); i+=groupSize) 
             {
                 string[] group = new string[groupSize] { rucksacks[i], rucksacks[i+1], rucksacks[i+2] };
-                sum += GetGroupRucksackPriority(group);
+                char commonItem = GetCommonGroupItem(group);
+                sum += GetPriorityValue(commonItem);
             }
             return sum;
 
-        }
-
-        private static int GetSingleRucksackPriority(string rucksack)
-        {
-            char commonItem = GetCommonRucksackItem(rucksack);
-            return GetPriorityValue(commonItem);
-        }
-
-        private static int GetGroupRucksackPriority(string[] rucksackGroup) 
-        {
-            char commonItem = GetCommonGroupItem(rucksackGroup);
-            return GetPriorityValue(commonItem);
         }
 
         private static char GetCommonRucksackItem(string rucksack)

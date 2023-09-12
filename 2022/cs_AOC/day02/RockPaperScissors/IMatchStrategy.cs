@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace day02.RockPaperScissors
 {
-    public enum EResult
+    internal interface IMatchStrategy
     {
-        Loss = 0,
-        Draw = 3,
-        Win = 6
+        EOptions GetOptionForMatchScore(EScore targetResult);
+        EScore GetMatchScore(EOptions opponent);      
     }
 }

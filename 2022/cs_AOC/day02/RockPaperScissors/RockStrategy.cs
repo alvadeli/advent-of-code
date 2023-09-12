@@ -6,26 +6,26 @@ using System.Threading.Tasks;
 
 namespace day02.RockPaperScissors
 {
-    public class RockStrategy : IRCPStrategy
+    public class RockStrategy : IMatchStrategy
     {
-        public EOptions GetOptionForTargetResult(EResult targetResult)
+        public EOptions GetOptionForMatchScore(EScore targetResult)
         {
             return targetResult switch
             {
-                EResult.Loss => EOptions.Scissors,
-                EResult.Draw => EOptions.Rock,
-                EResult.Win => EOptions.Paper,
+                EScore.Loss => EOptions.Scissors,
+                EScore.Draw => EOptions.Rock,
+                EScore.Win => EOptions.Paper,
                 _ => throw new NotImplementedException()
             };
         }
 
-        public EResult Result(EOptions input)
+        public EScore GetMatchScore(EOptions input)
         {
             return input switch
             {
-                EOptions.Rock => EResult.Draw,
-                EOptions.Paper => EResult.Loss,
-                EOptions.Scissors => EResult.Win,
+                EOptions.Rock => EScore.Draw,
+                EOptions.Paper => EScore.Loss,
+                EOptions.Scissors => EScore.Win,
                 _ => throw new NotImplementedException()
             };
         }

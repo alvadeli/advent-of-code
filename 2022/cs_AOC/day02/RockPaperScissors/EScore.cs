@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace day02.RockPaperScissors
 {
-    internal interface IRCPStrategy
+    public enum EScore
     {
-        EOptions GetOptionForTargetResult(EResult targetResult);
-        EResult Result(EOptions opponent);      
+        Loss = 0,
+        Draw = 3,
+        Win = 6
     }
 }

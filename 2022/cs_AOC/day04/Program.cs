@@ -5,25 +5,19 @@ namespace day04
     internal class Program
     {
         private static bool demo = false;
-        private static bool firstPart = false;
 
         static void Main(string[] args)
         {
             string file = Utils.Input.GetInputFile(demo);
-
             string[] assignmentList = File.ReadAllLines(file);
+     
+            int count = GetSubsets(assignmentList);
+            Console.WriteLine("Part 1: Subsets of Assignment Pairs: {0}", count);
 
-            int count = 0;
-            if (firstPart)
-            {
-                count = GetSubsets(assignmentList);
-            }
-            else 
-            {
-                count = GetOverlaps(assignmentList);
-            }
+            count = GetOverlaps(assignmentList);
+            Console.WriteLine("Part 2: Overlapping Assignment Pairs: {0}", count);
 
-            Console.WriteLine("Overlapping Assignment Pairs: {0}", count);
+
 
         }
 
