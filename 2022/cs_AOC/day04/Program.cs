@@ -2,7 +2,7 @@
 
 namespace day04
 {
-    internal class Program
+    public class Program
     {
         private static bool demo = false;
 
@@ -21,7 +21,7 @@ namespace day04
 
         }
 
-        private static int GetSubsets(string[] assignmentList)
+        public static int GetSubsets(string[] assignmentList)
         {
             int subsetAssignments = 0;
 
@@ -38,7 +38,7 @@ namespace day04
             return subsetAssignments;
         }
 
-        private static int GetOverlaps(string[] assignmentList)
+        public static int GetOverlaps(string[] assignmentList)
         {
             int overlappingAssignments = 0;
 

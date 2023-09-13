@@ -1,61 +1,26 @@
-﻿namespace day05
+﻿using Utils;
+using static System.Net.Mime.MediaTypeNames;
+
+namespace day05
 {
     internal class Program
     {
-        private static bool demo = true;
+        private static bool demo = false;
         static void Main(string[] args)
         {
             string file = Utils.Input.GetInputFile(demo);
-            var input = File.ReadAllText(file);
+            var instructions = File.ReadAllText(file);
 
-            var inputSections = input.Split("\r\n\r\n");
+           
+            string result = CrateRearrangementProcess.GetTopCratesAtferRearrangement(instructions,CrateRearrangementProcess.CraneType.CrateMover9000);
+            Console.WriteLine("Part 1: Message = {0}",result);
 
-            var stacks = CreateStacks(inputSections[0]);
-
-            var arrangementInfo = inputSections[1];
-
-
-
-
-
-
+            result = CrateRearrangementProcess.GetTopCratesAtferRearrangement(instructions, CrateRearrangementProcess.CraneType.CrateMover9001);
+            Console.WriteLine("Part 1: Message = {0}", result);
         }
 
-        private static List<List<char>> CreateStacks(string stackInfo)
-        {
-            var stacks = new List<List<char>>();
-            var list = stackInfo.Split("\r\n").Reverse().ToList();
 
-            list.RemoveAt(0);
 
-            var cratePositions = new List<int>();
 
-            for (int i = 0; i < list[0].Length; i++)
-            {
-                if (char.IsLetter(list[0][i]))
-                {
-                    cratePositions.Add(i);
-                }
-            }
-
-            for (int i = 0; i < cratePositions.Count; i++)
-            {
-                stacks.Add(new List<char>());
-            }
-
-            foreach (var row in list)
-            {
-                for (int i = 0; i < cratePositions.Count; i++)
-                {
-                    char current = row[cratePositions[i]];
-                    if (char.IsLetter(current))
-                    {
-                        stacks[i].Add(current);
-                    }
-                }
-            }
-
-            return stacks;
-        }
     }
 }

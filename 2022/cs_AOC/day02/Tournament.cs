@@ -9,7 +9,7 @@ using Utils;
 
 namespace day02
 {
-    internal class Tournament
+    public class Tournament
     {
         public static int GetScoreFromMatchTarget(List<string> tournamentRounds) 
         {

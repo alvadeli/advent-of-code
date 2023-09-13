@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace day03
 {
-    internal static class RucksackPriority
+    public static class RucksackPriority
     {
         private const char CharWhiteSpace = ' ';
 

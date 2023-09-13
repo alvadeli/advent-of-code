@@ -10,24 +10,13 @@ namespace day01
         {
             string file = Utils.Input.GetInputFile(demo);
 
-            var elveInventoryValues = new List<int>() { };
+ 
             var lines = File.ReadAllLines(file);
-            int elveInventoryValue = 0;
 
-            foreach (var line in lines) 
-            {
-                if (string.IsNullOrEmpty(line))
-                {
-                    elveInventoryValues.Add(elveInventoryValue);
-                    elveInventoryValue = 0;          
-                    continue;
-                }
-                elveInventoryValue += int.Parse(line);
-
-            }
+            int maxCalories = EvleCalories.GetMaxCalories(lines);
             
 
-            Console.WriteLine("Max Calories: {0}", elveInventoryValues.Max() );
+            Console.WriteLine("Max Calories: {0}", maxCalories);
         }
     }
 }
