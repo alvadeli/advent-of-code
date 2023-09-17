@@ -12,7 +12,7 @@ namespace Tests
 
         public day07Tests()
         {
-            string testFile = Utils.TestData.GetFile("day07-demo-input.txt");
+            string testFile = TestData.Input.GetFile("day07-demo-input.txt");
             string[] terminalOutput = System.IO.File.ReadAllLines(testFile);
             _topLevelDirectory = FileSystem.ReconstructDirectory(terminalOutput);
         }

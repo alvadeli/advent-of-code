@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tests.Utils
+namespace Tests.TestData
 {
-    internal class TestData
+    internal class Input
     {
         public static string GetFile(string filename)
         {

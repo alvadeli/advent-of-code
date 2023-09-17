@@ -10,7 +10,7 @@ namespace Tests
 
         public day05Tests()
         {
-            string file = Utils.TestData.GetFile("day05-demo-input.txt");
+            string file = TestData.Input.GetFile("day05-demo-input.txt");
             _instructions = File.ReadAllText(file); ;
         }
 

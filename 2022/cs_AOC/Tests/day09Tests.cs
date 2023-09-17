@@ -15,7 +15,7 @@ namespace Tests
         public void BridgeWalk_MoveShortRope_ReturnInt()
         {
             //Arrange
-            string file = Utils.TestData.GetFile("day09-demo-input.txt");
+            string file = TestData.Input.GetFile("day09-demo-input.txt");
             var walk = day09.BridgeWalk.CreateFromTxt(file);
 
             //Assert
@@ -31,7 +31,7 @@ namespace Tests
         public void BridgeWalk_MoveLongRope_ReturnLong(string fileName, int expected) 
         {
             //Arrange
-            string file = Utils.TestData.GetFile(fileName);
+            string file = TestData.Input.GetFile(fileName);
             var walk = day09.BridgeWalk.CreateFromTxt(file);
 
             //Assert

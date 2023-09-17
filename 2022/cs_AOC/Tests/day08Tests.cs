@@ -14,7 +14,7 @@ namespace Tests
         private readonly TreeGrid _treeGrid;
         public day08Tests() 
         {
-            string file = Utils.TestData.GetFile("day08-demo-input.txt");
+            string file = TestData.Input.GetFile("day08-demo-input.txt");
             _treeGrid = TreeGrid.CreateFromTxt(file);
         }
 

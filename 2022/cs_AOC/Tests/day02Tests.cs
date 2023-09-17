@@ -9,7 +9,7 @@ namespace Tests
 
         public day02Tests() 
         {
-            string testFile = Utils.TestData.GetFile("day02-demo-input.txt");
+            string testFile = TestData.Input.GetFile("day02-demo-input.txt");
             _rounds = File.ReadAllLines(testFile);
         }
 

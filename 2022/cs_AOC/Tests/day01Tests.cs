@@ -9,7 +9,7 @@ namespace Tests
         public void ElveCalories_GetMaxCalories_ReturnInt()
         {
             //Arrange
-            string file = Utils.TestData.GetFile("day01-demo-input.txt");
+            string file = TestData.Input.GetFile("day01-demo-input.txt");
             string[] lines = File.ReadAllLines(file);
 
             //Act
