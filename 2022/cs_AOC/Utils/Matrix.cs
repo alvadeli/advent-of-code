@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace day08
+namespace Utils
 {
-    using System;
+ 
 
-    class Matrix
+    public class Matrix<T> 
     {
-        private readonly int[,] _data;
+        private readonly T[,] _data;
 
         public Matrix(int rows, int columns)
         {
-            _data = new int[rows, columns];
+            _data = new T[rows, columns];
         }
 
         public int RowCount => _data.GetLength(0);
@@ -22,16 +22,16 @@ namespace day08
         public int ColumnCount => _data.GetLength(1);
 
         // Indexer to access elements in the matrix
-        public int this[int row, int col]
+        public T this[int row, int col]
         {
             get { return _data[row, col]; }
             set { _data[row, col] = value; }
         }
 
         // Get a specific row as an array
-        public int[] GetRow(int rowIndex)
+        public T[] GetRow(int rowIndex)
         {
-            int[] row = new int[ColumnCount];
+            var row = new T[ColumnCount];
             for (int col = 0; col < ColumnCount; col++)
             {
                 row[col] = _data[rowIndex, col];
@@ -40,9 +40,9 @@ namespace day08
         }
 
         // Get a specific column as an array
-        public int[] GetColumn(int columnIndex)
+        public T[] GetColumn(int columnIndex)
         {
-            int[] column = new int[RowCount];
+            var column = new T[RowCount];
             for (int row = 0; row < RowCount; row++)
             {
                 column[row] = _data[row, columnIndex];

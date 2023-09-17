@@ -1,15 +1,16 @@
-﻿
+﻿using Utils;
+
 namespace day08
 {
 
     public class TreeGrid
     {
         private const int CornerTrees = 4;
-        private readonly Matrix _trees;
+        private readonly Matrix<int> _trees;
 
 
 
-        private TreeGrid(Matrix trees)
+        private TreeGrid(Matrix<int> trees)
         {
             _trees = trees;          
         }
@@ -21,7 +22,7 @@ namespace day08
             int rows = lines.Length;
             int columns = lines[0].Length;
 
-            var trees = new Matrix(rows, columns);
+            var trees = new Matrix<int>(rows, columns);
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < columns; j++)
