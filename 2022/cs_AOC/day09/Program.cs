@@ -1,12 +1,10 @@
-﻿using static day09.Program;
-
-namespace day09
+﻿namespace day09
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            var file = Utils.Input.GetInputFile(false);
+            var file = Utils.Input.GetInputFile();
             var walk = BridgeWalk.CreateFromTxt(file);
 
             int tailPostions = walk.MoveShortRope();

@@ -5,7 +5,7 @@
 
         static void Main(string[] args)
         {
-            string file =Utils.Input.GetInputFile(false);
+            string file =Utils.Input.GetInputFile();
             string datastream = File.ReadAllText(file);
 
             int markerEndPostion = DataStreamAnalyser.GetEndPostionOfType(datastream, DataStreamAnalyser.Type.Marker);

@@ -5,7 +5,7 @@ namespace day08
     {
         static void Main(string[] args)
         {
-            string file = Utils.Input.GetInputFile(false);
+            string file = Utils.Input.GetInputFile();
 
             var treesGrid = TreeGrid.CreateFromTxt(file);
             int visibleTrees = treesGrid.GetVisibleTrees();

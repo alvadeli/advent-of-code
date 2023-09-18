@@ -1,14 +1,10 @@
-﻿using System.Runtime.ExceptionServices;
-
-namespace day04
+﻿namespace day04
 {
     public class Program
     {
-        private static bool demo = false;
-
         static void Main(string[] args)
         {
-            string file = Utils.Input.GetInputFile(demo);
+            string file = Utils.Input.GetInputFile();
             string[] assignmentList = File.ReadAllLines(file);
      
             int count = GetSubsets(assignmentList);

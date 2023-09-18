@@ -1,14 +1,10 @@
-﻿using System.Globalization;
-
-namespace day07
+﻿namespace day07
 {
     internal class Program
     {
-        private static bool demo = true;
-
         static void Main(string[] args)
         {
-            string file = Utils.Input.GetInputFile(demo);
+            string file = Utils.Input.GetInputFile();
             string[] terminaloutput = System.IO.File.ReadAllLines(file);
 
             Directory topLevel = FileSystem.ReconstructDirectory(terminaloutput);

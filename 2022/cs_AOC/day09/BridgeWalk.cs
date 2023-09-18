@@ -1,9 +1,4 @@
-﻿using ScottPlot;
-using System.ComponentModel.DataAnnotations;
-using System.Runtime.ExceptionServices;
-using Utils;
-
-namespace day09
+﻿namespace day09
 {
 
     public class BridgeWalk

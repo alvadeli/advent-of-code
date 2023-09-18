@@ -2,12 +2,9 @@
 {
     internal class Program
     {
-        public static bool demo = false;
-
         static void Main(string[] args)
         {
-            string file = Utils.Input.GetInputFile(demo);
-
+            string file = Utils.Input.GetInputFile();
             var rounds = File.ReadAllLines(file);
     
             var result = Tournament.GetScoreAgainstOpponent(rounds.ToList());

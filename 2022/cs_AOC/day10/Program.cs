@@ -1,12 +1,10 @@
-﻿using System.Collections;
-
-namespace day10
+﻿namespace day10
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            string file = Utils.Input.GetInputFile(false);
+            string file = Utils.Input.GetInputFile();
 
             var cpu = new CPU();
             int signalStrength = cpu.SignalStrengthSum(file);
@@ -15,7 +13,6 @@ namespace day10
             Console.WriteLine("Part 2: CRT Display");
             var crt = new CRT();
             Console.WriteLine(crt.GetImage(file));
-
         }
     }
 

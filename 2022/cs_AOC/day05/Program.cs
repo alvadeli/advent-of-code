@@ -1,14 +1,10 @@
-﻿using Utils;
-using static System.Net.Mime.MediaTypeNames;
-
-namespace day05
+﻿namespace day05
 {
     internal class Program
     {
-        private static bool demo = false;
         static void Main(string[] args)
         {
-            string file = Utils.Input.GetInputFile(demo);
+            string file = Utils.Input.GetInputFile();
             var instructions = File.ReadAllText(file);
 
            

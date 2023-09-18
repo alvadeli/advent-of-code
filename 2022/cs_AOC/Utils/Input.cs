@@ -2,10 +2,10 @@
 {
     public static class Input
     {
-        public static string GetInputFile(bool demo)
+        public static string GetInputFile()
         {
             string appDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string filename = demo ? "demo-input.txt" : "input.txt";
+            string filename = "input.txt";
             return Path.Combine(appDirectory,filename);
         }
     }

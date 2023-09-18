@@ -2,11 +2,9 @@
 {
     internal class Program
     {
-        public static bool demo = false;
-
         static void Main(string[] args)
         {
-            string file = Utils.Input.GetInputFile(demo);
+            string file = Utils.Input.GetInputFile();
             string[] rucksacks = File.ReadAllLines(file);
         
             int rucksacksPrioritySum = RucksackPriority.GetPrioritiesSum(rucksacks);
