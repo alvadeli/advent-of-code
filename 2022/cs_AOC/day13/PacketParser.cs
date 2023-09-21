@@ -4,7 +4,7 @@
     {
         public static Packet ParseFromString(string text )
         {
-            Packet currentPacket = new Packet();
+            var currentPacket = new Packet();
             int openBrackets = 0;
             string number = "";
             foreach (var chr in text)

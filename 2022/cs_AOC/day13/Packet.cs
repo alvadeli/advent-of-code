@@ -51,22 +51,20 @@ namespace day13
 
         private void ConvertToListPacket()
         {
-            var valueNode = new Packet(_value);
-            _children.Add(valueNode);
+            var value = new Packet(_value);
+            _children.Add(value);
             _value = -1;
         }
 
 
-        public Size IsSmaller(Packet other)
+        public Size CompareSize(Packet other)
         {
             
             if (_children.Count ==0 && other._children.Count == 0)
             {
-                //Console.WriteLine("Compare {0} vs {1}", _value, other._value);
                 if (_value < other._value) return Size.Smaller;
                 if (_value == other._value) return Size.Equal;
                 return Size.Bigger;
-
             };
 
             if (_children.Count == 0 && other._children.Count != 0)
@@ -86,15 +84,19 @@ namespace day13
                 if (i== _children.Count) return Size.Smaller;
                 if (i == other._children.Count) return Size.Bigger;
 
-                var res = _children[i].IsSmaller(other._children[i]);
+                var res = _children[i].CompareSize(other._children[i]);
 
-                if (res == Size.Smaller) return Size.Smaller;
-                if (res == Size.Bigger) return Size.Bigger;
+                if (res != Size.Equal) return res;
             }
-
 
             return Size.Equal;
         }
+
+        public bool IsBigger(Packet comparison)
+        {
+            return CompareSize(comparison) == Size.Bigger;
+        }
+
 
         public override bool Equals(object? obj)
         {

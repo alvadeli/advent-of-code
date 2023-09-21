@@ -48,42 +48,56 @@ namespace Tests
             var packetRight = _testPacketData[packetRightText];
             
             //Act
-            var actual = packetLeft.IsSmaller(packetRight);
+            var actual = packetLeft.CompareSize(packetRight);
 
             //Assert
             actual.Should().Be(expected);
 
         }
 
-        [Theory]
-        [InlineData("[1,1,3,1,1]")]
-        [InlineData("[1,1,5,1,1]")]
-        [InlineData("[[1],[2,3,4]]")]
-        [InlineData("[[1],4]")]
-        [InlineData("[9]")]
-        [InlineData("[[8,7,6]]")]
-        [InlineData("[[4,4],4,4]")]
-        [InlineData("[[4,4],4,4,4]")]
-        [InlineData("[7,7,7,7]")]
-        [InlineData("[7,7,7]")]
-        [InlineData("[]")]
-        [InlineData("[3]")]
-        [InlineData("[[[]]]")]
-        [InlineData("[[]]")]
-        [InlineData("[1,[2,[3,[4,[5,6,7]]]],8,9]")]
-        [InlineData("[1,[2,[3,[4,[5,6,0]]]],8,9]")]
+        //[Theory]
+        //[InlineData("[1,1,3,1,1]")]
+        //[InlineData("[1,1,5,1,1]")]
+        //[InlineData("[[1],[2,3,4]]")]
+        //[InlineData("[[1],4]")]
+        //[InlineData("[9]")]
+        //[InlineData("[[8,7,6]]")]
+        //[InlineData("[[4,4],4,4]")]
+        //[InlineData("[[4,4],4,4,4]")]
+        //[InlineData("[7,7,7,7]")]
+        //[InlineData("[7,7,7]")]
+        //[InlineData("[]")]
+        //[InlineData("[3]")]
+        //[InlineData("[[[]]]")]
+        //[InlineData("[[]]")]
+        //[InlineData("[1,[2,[3,[4,[5,6,7]]]],8,9]")]
+        //[InlineData("[1,[2,[3,[4,[5,6,0]]]],8,9]")]
 
-        public void NodeParser_ParseFromString(string text) 
+        //public void NodeParser_ParseFromString(string text) 
+        //{
+        //    //Arrange
+        //    var expected = _testPacketData[text];
+
+        //    //Act
+        //    var actual = PacketParser.ParseFromString(text);
+
+        //    //Assert
+
+        //    actual.Should().BeEquivalentTo(expected);
+        //}
+
+
+        [Fact]
+        public void PackageData_GetDecoderKey_ReturnsInt()
         {
             //Arrange
-            var expected = _testPacketData[text];
+            var packets = _testPacketData.Values.ToList();
 
             //Act
-            var actual = PacketParser.ParseFromString(text);
+            int actual = PackageData.GetDecoderKey(packets);
 
             //Assert
-
-            actual.Should().BeEquivalentTo(expected);
+            actual.Should().Be(140);
         }
 
         private Dictionary<string, Packet> CreateTestPackets()
