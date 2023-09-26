@@ -67,12 +67,12 @@ namespace day13
                 return Size.Bigger;
             };
 
-            if (_children.Count == 0 && other._children.Count != 0)
+            if (_children.Count == 0 && _value != -1 && other._children.Count != 0)
             {
                 ConvertToListPacket();
             }
 
-            if (_children.Count != 0 && other._children.Count == 0)
+            if (_children.Count != 0 && other._children.Count == 0 && other._value != -1)
             {
                 other.ConvertToListPacket();
             }

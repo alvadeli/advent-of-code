@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography.X509Certificates;
+using Utils;
 
 namespace day12
 {
@@ -50,13 +51,7 @@ namespace day12
             int cols = grid.GetLength(1);
 
             int[,] distance = new int[rows, cols];
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < cols; j++)
-                {
-                    distance[i, j] = int.MaxValue;
-                }
-            }
+            distance.InitializeAll(int.MaxValue);
 
             bool[,] visited = new bool[rows, cols];
 
