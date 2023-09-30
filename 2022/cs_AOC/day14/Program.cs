@@ -10,10 +10,15 @@ namespace day14
         static void Main(string[] args)
         {
             var input = Utils.Input.GetInputFile();
-            var cave = Cave.CreateFromFile(input);
+            
+            var cave = Cave.CreateFromFile(input);      
             int sandUnits = cave.ProduceSand();
-
             Console.WriteLine("Part 1: SandUnits={0}", sandUnits);
+
+            var caveWithFloor = Cave.CreateWithFloorFromFile(input);
+            sandUnits = caveWithFloor.ProduceSand();
+            Console.WriteLine("Part 2: SandUnits={0}", sandUnits);
+
         }
     }
 

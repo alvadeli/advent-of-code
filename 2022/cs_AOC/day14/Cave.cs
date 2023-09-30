@@ -15,6 +15,56 @@ namespace day14
 
         public static Cave CreateFromFile(string file)
         {
+            List<Position> points = GetWallPoints(file);
+
+            var rows = points.Select(p => p.Y).Max() + 1;
+            var x_offset = points.Select(p => p.X).Min();
+            var columns = points.Select(p => p.X).Max() - x_offset + 1;
+
+            var grid = new bool[rows, columns];
+            grid.InitializeAll(true);
+
+            foreach (var point in points)
+            {
+                point.X -= x_offset;
+                grid[point.Y, point.X] = false;
+            }
+
+            var startSand = new Position(500 - x_offset, 0);
+
+            return new Cave(grid, startSand);
+        }
+
+        public static Cave CreateWithFloorFromFile(string file) 
+        {
+            List<Position> points = GetWallPoints(file);
+            var rows = points.Select(p => p.Y).Max() + 1 + 2;
+            var columns = (rows -1) * 2 + 1;
+            var columnCenter = rows-1;
+            
+            var x_offset = (500 - columnCenter);
+
+            var grid = new bool[rows, columns];
+            grid.InitializeAll(true);
+
+            foreach (var point in points)
+            {
+                point.X -= x_offset;
+                grid[point.Y, point.X] = false;
+            }
+
+            for (int i = 0; i< grid.GetLength(1); i++)
+            {
+                grid[grid.GetLength(0)-1,i] = false;
+            }
+
+            return new Cave(grid, new Position(columnCenter, 0));
+        }
+
+
+
+        private static List<Position> GetWallPoints(string file)
+        {
             string[] lines = File.ReadAllLines(file);
 
             var points = new List<Position>();
@@ -63,22 +113,7 @@ namespace day14
 
             }
 
-            var rows = points.Select(p => p.Y).Max() + 1;
-            var x_offset = points.Select(p => p.X).Min();
-            var columns = points.Select(p => p.X).Max() - x_offset + 1;
-
-            var grid = new bool[rows, columns];
-            grid.InitializeAll(true);
-
-            foreach (var point in points)
-            {
-                point.X -= x_offset;
-                grid[point.Y, point.X] = false;
-            }
-
-            var startSand = new Position(500 - x_offset, 0);
-
-            return new Cave(grid, startSand);
+            return points;
         }
 
         public int ProduceSand() 
@@ -94,6 +129,8 @@ namespace day14
 
         bool MoveSand()
         {
+            if (!_grid[_sandStart.Y,_sandStart.X]) return false;
+
             var currentPosition = _sandStart;
    
             (int x, int y)[] dxdy = new (int x, int y)[] { (0,1), (-1,1), (1,1) };
@@ -126,7 +163,6 @@ namespace day14
                     }
 
                     canMove = false;
-
                 }
             }
 
