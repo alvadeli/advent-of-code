@@ -21,14 +21,12 @@ namespace Utils
 
         public int ColumnCount => _data.GetLength(1);
 
-        // Indexer to access elements in the matrix
         public T this[int row, int col]
         {
             get { return _data[row, col]; }
             set { _data[row, col] = value; }
         }
 
-        // Get a specific row as an array
         public T[] GetRow(int rowIndex)
         {
             var row = new T[ColumnCount];
@@ -39,7 +37,6 @@ namespace Utils
             return row;
         }
 
-        // Get a specific column as an array
         public T[] GetColumn(int columnIndex)
         {
             var column = new T[RowCount];

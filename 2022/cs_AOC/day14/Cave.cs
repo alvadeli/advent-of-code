@@ -5,9 +5,9 @@ namespace day14
     public class Cave
     {
         private bool[,] _grid;
-        private readonly Position _sandStart;
+        private readonly Point _sandStart;
 
-        public Cave(bool[,] grid, Position sandStart)
+        public Cave(bool[,] grid, Point sandStart)
         {
             _grid = grid;
             _sandStart = sandStart;
@@ -15,7 +15,7 @@ namespace day14
 
         public static Cave CreateFromFile(string file)
         {
-            List<Position> points = GetWallPoints(file);
+            List<Point> points = GetWallPoints(file);
 
             var rows = points.Select(p => p.Y).Max() + 1;
             var x_offset = points.Select(p => p.X).Min();
@@ -30,14 +30,14 @@ namespace day14
                 grid[point.Y, point.X] = false;
             }
 
-            var startSand = new Position(500 - x_offset, 0);
+            var startSand = new Point(500 - x_offset, 0);
 
             return new Cave(grid, startSand);
         }
 
         public static Cave CreateWithFloorFromFile(string file) 
         {
-            List<Position> points = GetWallPoints(file);
+            List<Point> points = GetWallPoints(file);
             var rows = points.Select(p => p.Y).Max() + 1 + 2;
             var columns = (rows -1) * 2 + 1;
             var columnCenter = rows-1;
@@ -58,16 +58,16 @@ namespace day14
                 grid[grid.GetLength(0)-1,i] = false;
             }
 
-            return new Cave(grid, new Position(columnCenter, 0));
+            return new Cave(grid, new Point(columnCenter, 0));
         }
 
 
 
-        private static List<Position> GetWallPoints(string file)
+        private static List<Point> GetWallPoints(string file)
         {
             string[] lines = File.ReadAllLines(file);
 
-            var points = new List<Position>();
+            var points = new List<Point>();
 
             foreach (string line in lines)
             {
@@ -83,7 +83,7 @@ namespace day14
                     int x2 = int.Parse(End[0]);
                     int y2 = int.Parse(End[1]);
 
-                    points.Add(new Position(x1, y1));
+                    points.Add(new Point(x1, y1));
 
                     if (x1 == x2)
                     {
@@ -92,7 +92,7 @@ namespace day14
                         while (y1 != y2)
                         {
                             y1 += step;
-                            points.Add(new Position(x1, y1));
+                            points.Add(new Point(x1, y1));
 
                         };
 
@@ -105,7 +105,7 @@ namespace day14
                         while (x1 != x2)
                         {
                             x1 += step;
-                            points.Add(new Position(x1, y1));
+                            points.Add(new Point(x1, y1));
 
                         };
                     }
@@ -141,7 +141,7 @@ namespace day14
             {
                 foreach (var move in dxdy)
                 {
-                    var newPosition = new Position(currentPosition.X,currentPosition.Y);
+                    var newPosition = new Point(currentPosition.X,currentPosition.Y);
                     newPosition.X += move.x;
                     newPosition.Y += move.y;
 
@@ -174,7 +174,7 @@ namespace day14
         {
             return obj is Cave cave &&
                    _grid.IsEqualTo(cave._grid) &&
-                   EqualityComparer<Position>.Default.Equals(_sandStart, cave._sandStart);
+                   EqualityComparer<Point>.Default.Equals(_sandStart, cave._sandStart);
         }
 
         public override int GetHashCode()
@@ -188,3 +188,10 @@ namespace day14
 
 
 }
+
+
+
+
+
+
+

@@ -11,8 +11,8 @@ namespace day12
 
             char[,] grid = new char[lines.Length, lines[0].Length];
 
-            var start = new Position2D();
-            var end = new Position2D();
+            var start = new Point();
+            var end = new Point();
 
 
 
@@ -42,7 +42,7 @@ namespace day12
         }
 
 
-        public static int GetShortesPathDijkstra(char[,] grid, Position2D start, Position2D end)
+        public static int GetShortesPathDijkstra(char[,] grid, Point start, Point end)
         {
 
             //PrintArray(grid);
@@ -102,7 +102,7 @@ namespace day12
 
         public static int FindShortestPathFromA(DiikstraInput input)
         {
-            List<Position2D> startingPositions = new();
+            List<Point> startingPositions = new();
 
             for (int i = 0; i < input.Grid.GetLength(0); i++)
             {
@@ -110,7 +110,7 @@ namespace day12
                 {
                     if (input.Grid[i,j] == 'a')
                     {
-                        startingPositions.Add(new Position2D() {X=j,Y=i });
+                        startingPositions.Add(new Point() {X=j,Y=i });
                     }
                 }
             }

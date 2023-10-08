@@ -1,4 +1,5 @@
-﻿namespace day11
+﻿
+namespace day11
 {
     internal class Program   
     {

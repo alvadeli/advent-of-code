@@ -1,4 +1,5 @@
-﻿using day14;
+﻿
+using day14;
 using FluentAssertions;
 using Tests.TestData;
 using Xunit;
@@ -27,7 +28,7 @@ namespace Tests
 
         public day14Tests() 
         {
-            var sandStart = new Position(6, 0);
+            var sandStart = new Utils.Point(6, 0);
             _testCave = new Cave(grid, sandStart);
         }
 
